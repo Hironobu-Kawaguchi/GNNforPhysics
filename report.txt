@@ -1,0 +1,76 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 8 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'learning_to_simulate'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/connectivity_utils.py'
+ outputting to 'learning_to_simulate_v2/connectivity_utils.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/graph_network.py'
+ outputting to 'learning_to_simulate_v2/graph_network.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/learned_simulator.py'
+ outputting to 'learning_to_simulate_v2/learned_simulator.py'
+--------------------------------------------------------------------------------
+
+30:0: INFO: Not upgrading symbols because `tensorflow.compat.v1` was directly imported as `tf`.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/model_demo.py'
+ outputting to 'learning_to_simulate_v2/model_demo.py'
+--------------------------------------------------------------------------------
+
+40:0: INFO: Not upgrading symbols because `tensorflow.compat.v1` was directly imported as `tf`.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/noise_utils.py'
+ outputting to 'learning_to_simulate_v2/noise_utils.py'
+--------------------------------------------------------------------------------
+
+19:0: INFO: Not upgrading symbols because `tensorflow.compat.v1` was directly imported as `tf`.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/reading_utils.py'
+ outputting to 'learning_to_simulate_v2/reading_utils.py'
+--------------------------------------------------------------------------------
+
+21:0: INFO: Not upgrading symbols because `tensorflow.compat.v1` was directly imported as `tf`.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/render_rollout.py'
+ outputting to 'learning_to_simulate_v2/render_rollout.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'learning_to_simulate/train.py'
+ outputting to 'learning_to_simulate_v2/train.py'
+--------------------------------------------------------------------------------
+
+42:0: INFO: Not upgrading symbols because `tensorflow.compat.v1` was directly imported as `tf`.
+--------------------------------------------------------------------------------
+

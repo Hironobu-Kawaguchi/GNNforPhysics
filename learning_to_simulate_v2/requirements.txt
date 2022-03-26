@@ -1,0 +1,4 @@
+graph-nets>=1.1
+dm-sonnet>=2.0
+tensorflow_probability
+dm-tree

@@ -53,11 +53,11 @@ TYPE_TO_COLOR = {
 }
 
 
-def main(unused_argv):
+def main2(filename, unused_argv):
 
   if not FLAGS.rollout_path:
     raise ValueError("A `rollout_path` must be passed.")
-  with open(FLAGS.rollout_path, "rb") as file:
+  with open(os.path.join(FLAGS.rollout_path, filename), "rb") as file:
     rollout_data = pickle.load(file)
 
   fig, axes = plt.subplots(1, 2, figsize=(10, 5))
@@ -99,9 +99,15 @@ def main(unused_argv):
       fig, update,
       frames=np.arange(0, num_steps, FLAGS.step_stride), interval=10)
   # plt.show(block=FLAGS.block_on_show)
-  dirname = os.path.dirname(FLAGS.rollout_path)
-  basename_without_ext = os.path.splitext(os.path.basename(FLAGS.rollout_path))[0]
+  dirname = os.path.dirname(os.path.join(FLAGS.rollout_path, filename))
+  basename_without_ext = os.path.splitext(os.path.basename(os.path.join(FLAGS.rollout_path, filename)))[0]
   unused_animation.save(os.path.join(dirname, basename_without_ext + '.gif'), writer="imagemagick")
+
+
+def main(unused_argv):
+    for i in range(100):
+        filename = 'rollout_test_' +str(i) + '.pkl'
+        main2(filename, unused_argv)
 
 if __name__ == "__main__":
   app.run(main)

@@ -36,8 +36,6 @@ from matplotlib import animation
 import matplotlib.pyplot as plt
 import numpy as np
 
-import os
-
 flags.DEFINE_string("rollout_path", None, help="Path to rollout pickle file")
 flags.DEFINE_integer("step_stride", 3, help="Stride of steps to skip.")
 flags.DEFINE_boolean("block_on_show", True, help="For test purposes.")
@@ -98,10 +96,8 @@ def main(unused_argv):
   unused_animation = animation.FuncAnimation(
       fig, update,
       frames=np.arange(0, num_steps, FLAGS.step_stride), interval=10)
-  # plt.show(block=FLAGS.block_on_show)
-  dirname = os.path.dirname(FLAGS.rollout_path)
-  basename_without_ext = os.path.splitext(os.path.basename(FLAGS.rollout_path))[0]
-  unused_animation.save(os.path.join(dirname, basename_without_ext + '.gif'), writer="imagemagick")
+  plt.show(block=FLAGS.block_on_show)
+
 
 if __name__ == "__main__":
   app.run(main)
