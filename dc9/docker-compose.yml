@@ -26,8 +26,5 @@ services:
     # command: nvidia-smi
     # command: python /home/run.py
     # command: python -m learning_to_simulate.train --data_path=./tmp/datasets/Water --model_path=./tmp/models/Water --num_steps 1000000
-    command: >
-      bash -c "
-        python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/Water --model_path=./tmp/models/Water --output_path=./tmp/rollouts/Water &&
-        python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/Water --test_num=30
-        "
+    # command: python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/Water --model_path=./tmp/models/Water --output_path=./tmp/rollouts/Water
+    # command: python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/Water --test_num=30

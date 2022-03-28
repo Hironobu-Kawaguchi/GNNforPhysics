@@ -27,9 +27,9 @@ services:
     # command: python /home/run.py
     # command: python -m learning_to_simulate.train --data_path=./tmp/datasets/FluidShake --model_path=./tmp/models/FluidShake --num_steps 500000
     command: python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/FluidShake --model_path=./tmp/models/FluidShake --output_path=./tmp/rollouts/FluidShake
-    # command: python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/FluidShake --test_num=30
+    # command: python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/FluidShake --test_num=100
     # command: >
     #   bash -c "
     #     python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/FluidShake --model_path=./tmp/models/FluidShake --output_path=./tmp/rollouts/FluidShake &&
-    #     python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/FluidShake --test_num=30
+    #     python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/FluidShake --test_num=100
     #     "
