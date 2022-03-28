@@ -1,4 +1,4 @@
-version: "22.02"
+version: "2.4"
 services:
   GNNforPysics9:
   # GNNforPysics8:
