@@ -41,6 +41,7 @@ import os
 flags.DEFINE_string("rollout_path", None, help="Path to rollout pickle file")
 flags.DEFINE_integer("step_stride", 3, help="Stride of steps to skip.")
 flags.DEFINE_boolean("block_on_show", True, help="For test purposes.")
+flags.DEFINE_integer("test_num", 3, help="Number of test case.")
 
 FLAGS = flags.FLAGS
 
@@ -105,7 +106,7 @@ def main2(filename, unused_argv):
 
 
 def main(unused_argv):
-    for i in range(100):
+    for i in range(FLAGS.test_num):
         filename = 'rollout_test_' +str(i) + '.pkl'
         main2(filename, unused_argv)
 

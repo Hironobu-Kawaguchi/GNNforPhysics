@@ -11,6 +11,7 @@ docker run --name GNNforPysics -it --rm --gpus '"device=1"' -v $(pwd):/mydir/  -
 
 ``` shell
 docker-compose up -d
+docker-compose up
 ```
 
 
@@ -44,6 +45,7 @@ python -m learning_to_simulate.train --data_path=./tmp/datasets/Water --model_pa
 
 ``` bash
 # Generate some trajectory rollouts on the test set:
+mkdir -p ./tmp/rollouts
 python -m learning_to_simulate.train \
     --mode="eval_rollout" \
     --data_path=./tmp/datasets/WaterRamps \
@@ -56,5 +58,5 @@ python -m learning_to_simulate.train \
 python -m learning_to_simulate.render_rollout \
     --rollout_path=./tmp/rollouts/WaterRamps/rollout_test_1.pkl
 
-python -m learning_to_simulate.render_100rollouts --rollout_path=./tmp/rollouts/WaterRamps
+python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/WaterRamps --test_num=100
 ```

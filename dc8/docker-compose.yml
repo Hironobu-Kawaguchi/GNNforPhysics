@@ -1,0 +1,36 @@
+version: "22.02"
+services:
+  # GNNforPysics9:
+  GNNforPysics8:
+    # container_name: 'GNNforPysics9'
+    container_name: 'GNNforPysics8'
+    build: ..
+    image: 'gnnforpysics/tensorflow:22.02-tf1-py3'
+    environment:
+      - TF_FORCE_GPU_ALLOW_GROWTH=true
+    volumes:
+      # - $PWD:/mydir
+      - ../:/mydir
+    working_dir: /mydir
+    shm_size: '2gb'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              # device_ids: ['9']
+              device_ids: ['8']
+              # count: 1
+              capabilities: [gpu]
+    # command: ls -al
+    # command: nvidia-smi
+    # command: python /home/run.py
+    # command: python -m learning_to_simulate.train --data_path=./tmp/datasets/WaterRamps --model_path=./tmp/models/WaterRamps --num_steps 500000
+    # command: python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/WaterRamps --model_path=./tmp/models/WaterRamps --output_path=./tmp/rollouts/WaterRamps
+    # command: python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/WaterRamps --test_num=100
+    command: >
+      bash -c "
+        python -m learning_to_simulate.train --data_path=./tmp/datasets/WaterRamps --model_path=./tmp/models/WaterRamps --num_steps 1000000 &&
+        python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/WaterRamps --model_path=./tmp/models/WaterRamps --output_path=./tmp/rollouts/WaterRamps $$
+        python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/WaterRamps --test_num=100
+        "
