@@ -25,6 +25,17 @@ services:
     # command: ls -al
     # command: nvidia-smi
     # command: python /home/run.py
+    command: >
+      bash -c "
+        python -m learning_to_simulate.train --data_path=./tmp/datasets/FluidShakeBox --model_path=./tmp/models/FluidShakeBox --num_steps 500000 &&
+        python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/FluidShakeBox --model_path=./tmp/models/FluidShakeBox --output_path=./tmp/rollouts/FluidShakeBox $$
+        "
+    # command: >
+    #   bash -c "
+    #     python -m learning_to_simulate.train --data_path=./tmp/datasets/FluidShakeBox --model_path=./tmp/models/FluidShakeBox --num_steps 1000000 &&
+    #     python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/FluidShakeBox --model_path=./tmp/models/FluidShakeBox --output_path=./tmp/rollouts/FluidShakeBox $$
+    #     python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/FluidShakeBox --test_num=100
+    #     "
     # command: python -m learning_to_simulate.train --data_path=./tmp/datasets/Water --model_path=./tmp/models/Water --num_steps 1000000
     # command: python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/Water --model_path=./tmp/models/Water --output_path=./tmp/rollouts/Water
     # command: python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/Water --test_num=30
