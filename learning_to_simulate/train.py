@@ -42,14 +42,6 @@ import numpy as np
 import tensorflow.compat.v1 as tf
 import tree
 
-# tensorflowは普通に使用すると、GPUメモリを取れるだけとってしまうため、最小限だけ使うように設定する。（命苫メソッド）
-# import tensorflow as tf
-# physical_devices = tf.config.experimental.list_physical_devices('GPU')
-# tf.config.experimental.set_memory_growth(physical_devices[0], True)
-config = tf.ConfigProto()
-# config.gpu_options.allow_growth = True
-config.gpu_options.per_process_gpu_memory_fraction = 0.5
-
 
 from learning_to_simulate import learned_simulator
 from learning_to_simulate import noise_utils
