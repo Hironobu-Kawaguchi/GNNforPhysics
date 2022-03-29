@@ -25,17 +25,17 @@ services:
     # command: ls -al
     command: nvidia-smi
     # command: python /home/run.py
-    # command: python -m learning_to_simulate.train --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --num_steps 500000
+    # command: python -m learning_to_simulate.train --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --num_steps 10000
     # command: python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --output_path=./tmp/rollouts/Water-3D
     # command: python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/Water-3D --test_num=100
-    command: >
-      bash -c "
-        python -m learning_to_simulate.train --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --num_steps 10000 &&
-        python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --output_path=./tmp/rollouts/Water-3D $$
-        "
     # command: >
     #   bash -c "
     #     python -m learning_to_simulate.train --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --num_steps 10000 &&
     #     python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --output_path=./tmp/rollouts/Water-3D $$
-    #     python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/Water-3D --test_num=100
     #     "
+    command: >
+      bash -c "
+        python -m learning_to_simulate.train --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --num_steps 100000 &&
+        python -m learning_to_simulate.train --mode="eval_rollout" --data_path=./tmp/datasets/Water-3D --model_path=./tmp/models/Water-3D --output_path=./tmp/rollouts/Water-3D $$
+        python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/Water-3D --test_num=100
+        "
