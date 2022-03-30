@@ -2,13 +2,13 @@ version: "2.4"
 services:
   GNNforPysics:
     container_name: 'GNNforPysics'
-    build: ..
+    build: .
     image: 'gnnforpysics/tensorflow:22.02-tf1-py3'
     environment:
       - TF_FORCE_GPU_ALLOW_GROWTH=true
     volumes:
       # - $PWD:/mydir
-      - ../:/mydir
+      - ./:/mydir
     working_dir: /mydir
     ports:
       - 8888:8888
