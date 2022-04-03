@@ -2,20 +2,6 @@
 Graph Neural Networks for Physics
 
 ``` bash
-# docker build and run
-docker build -t gnnforpysics/tensorflow:22.02-tf1-py3 .
-docker run --name GNNforPysics -it --rm --gpus all -v $(pwd):/mydir/  -w /mydir gnnforpysics/tensorflow:22.02-tf1-py3
-docker run --name GNNforPysics -it --rm --gpus '"device=0"' -v $(pwd):/mydir/  -w /mydir gnnforpysics/tensorflow:22.02-tf1-py3
-docker run --name GNNforPysics -it --rm --gpus '"device=1"' -v $(pwd):/mydir/  -w /mydir gnnforpysics/tensorflow:22.02-tf1-py3
-```
-
-``` shell
-docker-compose up -d
-docker-compose up
-```
-
-
-``` bash
 # Download dataset (e.g. WaterRamps):
 bash ./learning_to_simulate/download_dataset.sh WaterDrop ./tmp/datasets
 ```
@@ -38,25 +24,21 @@ bash ./learning_to_simulate/download_dataset.sh WaterDrop ./tmp/datasets
 1. Goop-3D
 
 ``` bash
+# run jupyter in docker:
+docker-compose up
+```
+
+``` bash
 # Train a model:
-export TF_FORCE_GPU_ALLOW_GROWTH=true
-python -m learning_to_simulate.train --data_path=./tmp/datasets/Water --model_path=./tmp/models/Water --num_steps 500000
-```
-
-``` bash
 # Generate some trajectory rollouts on the test set:
-mkdir -p ./tmp/rollouts
-python -m learning_to_simulate.train \
-    --mode="eval_rollout" \
-    --data_path=./tmp/datasets/WaterRamps \
-    --model_path=./tmp/models/WaterRamps \
-    --output_path=./tmp/rollouts/WaterRamps
+# Plot a trajectory:
+
+# edit dcx/docker-compose.yaml
+cd dc0
+docker-compose up
 ```
 
 ``` bash
-# Plot a trajectory:
-python -m learning_to_simulate.render_rollout \
-    --rollout_path=./tmp/rollouts/WaterRamps/rollout_test_1.pkl
-
-python -m learning_to_simulate.render_rollouts --rollout_path=./tmp/rollouts/WaterRamps --test_num=100
+# Check model log by tensorboard:
+tensorboard --logdir tmp/models
 ```
