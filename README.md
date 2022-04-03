@@ -1,6 +1,8 @@
 # GNNforPhysics
 Graph Neural Networks for Physics
 
+fork from https://github.com/deepmind/deepmind-research/tree/master/learning_to_simulate
+
 ``` bash
 # Download dataset (e.g. WaterRamps):
 bash ./learning_to_simulate/download_dataset.sh WaterDrop ./tmp/datasets
