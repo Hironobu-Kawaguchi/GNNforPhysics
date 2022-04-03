@@ -46,5 +46,8 @@ tensorboard --logdir tmp/models
 ```
 
 tensorboard image
-- [WaterRamps(1000000step) GRAPHS](image/WaterRamps_1000000.png)
-- [WaterRamps(1000000step) SCALARS loss](image/WaterRamps_1000000_loss.svg)
+- WaterRamps(1000000step)
+ - GRAPHS
+    ![WaterRamps(1000000step) GRAPHS](image/WaterRamps_1000000.png)
+ - SCALARS loss
+    ![WaterRamps(1000000step) SCALARS loss](image/WaterRamps_1000000_loss.svg)
