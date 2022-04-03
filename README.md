@@ -47,7 +47,9 @@ tensorboard --logdir tmp/models
 
 tensorboard image
 - WaterRamps(1000000step)
- - GRAPHS
+    - Example
+    ![WaterRamps(1000000step) test_2](image/rollout_test_2.gif)
+    - GRAPHS
     ![WaterRamps(1000000step) GRAPHS](image/WaterRamps_1000000.png)
- - SCALARS loss
+    - SCALARS loss
     ![WaterRamps(1000000step) SCALARS loss](image/WaterRamps_1000000_loss.svg)
