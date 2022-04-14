@@ -134,3 +134,4 @@ nohup.out
 MNIST_data
 test_sonnet
 logs
+*.zip
